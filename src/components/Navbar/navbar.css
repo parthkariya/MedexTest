@@ -1,0 +1,284 @@
+#mySerach {
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+marquee {
+  background: #0c8599;
+  font-family: var(--font-base);
+  color: rgb(240, 244, 248);
+  margin-bottom: -6px;
+}
+
+/* .serchbar_icon {
+    color: #22b8cf;
+} */
+
+.input_text {
+  font-size: 18px;
+  font-family: var(--font-base);
+  color: dimgrey;
+  border-collapse: collapse;
+}
+
+.navbar__wrapper {
+  position: relative;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 1rem 10rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.m_logo {
+  width: 37.61px;
+  height: 37.61px;
+}
+
+.text_logo {
+  width: 5rem;
+  height: 1.5rem;
+}
+
+.nav__logos {
+  /* position: relative;
+  right: 8%; */
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav_alt_logo {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: black;
+  position: relative;
+}
+
+.shopping_cart_noti {
+  position: absolute;
+  top: -52%;
+  left: 9%;
+  background: #0c8599;
+  color: #fff;
+  font-size: 80%;
+  padding: 3px;
+
+  text-align: center;
+
+  border-radius: 100px;
+  height: fit-content;
+  width: fit-content;
+  line-height: normal;
+}
+
+.nav_alt_logo_margin {
+  margin-right: 5%;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: max-content;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 31%);
+  z-index: 99;
+  margin-top: -5%;
+}
+
+.dropdown-content a:hover {
+  color: #0c8599;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/*  SEARCH BAR START */
+
+.search-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 45%;
+  border-radius: 50px;
+  /* padding: 10px; */
+  border: 2px solid black;
+}
+
+.search-btn {
+  color: white;
+  float: right;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 2s;
+  margin: 3px;
+}
+
+.fa-search {
+  background: black;
+  font-size: 16px;
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 37px;
+  width: 0;
+}
+
+.search-input {
+  width: 80%;
+  padding: 0 7px;
+}
+
+.dropbtn {
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+  margin-top: 0%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+}
+
+/* .search-input {
+    width: 350px;
+    padding: 3px 16px;
+  }  */
+
+/*  SEARCH BAR END */
+
+/* *** MEDIA QUEARYS START *** */
+
+@media (max-width: 1440px) {
+  .navbar__wrapper {
+    padding: 1rem 6rem;
+  }
+
+  .search-input {
+    width: 80%;
+    padding: 0 7px;
+  }
+}
+
+@media (max-width: 500px) {
+  .dropdown-content {
+    right: 0%;
+  }
+
+  .navbar__wrapper {
+    padding: 1rem 1rem;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .navbar__wrapper {
+    padding: 0.5rem 2rem;
+  }
+
+  .text_logo {
+    display: none;
+  }
+
+  .search-box:hover > .search-input {
+    width: 100px;
+    padding: 0 7px;
+  }
+
+  .search-input {
+    width: 68%;
+    padding: 0 7px;
+  }
+}
+
+.serach-div {
+  /* display: none; */
+  margin-top: 3rem;
+
+  background-color: white;
+  padding: 15px;
+}
+
+.serach-div :picture-in-picture {
+  display: flex;
+}
+
+.search_res_link {
+  display: block;
+  color: black;
+}
+
+/* *** MEDIA QUEARYS END *** */

@@ -1,0 +1,295 @@
+.db_title {
+  font-size: 140%;
+  font-weight: 600;
+  width: 100%;
+  background-color: #eee;
+  color: #0c8599;
+
+  padding: 2%;
+  margin-bottom: 3%;
+}
+
+.dashboard_wrapper {
+  margin: 12% 5% 5% 5%;
+}
+
+.db_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 3.4%;
+  column-gap: 3%;
+}
+
+.db_profile,
+.db_address,
+.db_wallet,
+.db_orders {
+  height: 350px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px -6px;
+  border: none;
+  overflow: scroll;
+}
+
+.metadata_lbl {
+  font-size: 120%;
+  font-weight: 500;
+  color: #0c8599;
+  width: fit-content;
+  height: max-content;
+  border-radius: 150px;
+  margin-bottom: 10px;
+}
+
+.metadata_divider {
+  height: 2px;
+  width: 100%;
+  background: #0c8599;
+}
+
+.order_table {
+  margin-top: 20px;
+}
+
+.acc_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+
+  font-size: 120%;
+}
+
+.acc_divider {
+  background-color: #ccc;
+  height: 1.5px;
+  width: 50%;
+}
+
+.new_address {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+.add_btn {
+  border: none;
+
+  background: #0c8599;
+  color: #fff;
+  padding: 1% 2%;
+  margin: 1%;
+}
+
+.first_col {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 10%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.second_col,
+.fourth_col {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.email_col,
+.number_col,
+.dob_col,
+.gender_col {
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.wallet_card {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  justify-content: space-around;
+  background: #dddddd;
+  align-items: center;
+  padding: 3%;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.wallet_icn {
+  height: 4rem;
+  width: 4rem;
+}
+
+.tandc {
+  font-size: 90%;
+}
+
+.add_wallet_btn {
+  border: none;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_sub_title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add_address_btn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  align-items: center;
+  justify-content: center;
+  color: #0c8599;
+  background: none;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.add_cards_section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+}
+
+.add_card {
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new_btn,
+.edit_btn {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.add_type,
+.uname {
+  font-weight: 600;
+}
+
+.add_card_btn {
+  padding: 2px 8px;
+  border: none;
+  background: #0c8599;
+  color: #fff;
+}
+
+.acc_divider {
+  width: 100%;
+}
+
+.acc_lable {
+  color: dimgray;
+}
+
+.acc_lable_val {
+  color: #000;
+  font-weight: 500;
+}
+
+.action_val_cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.action_val_btn {
+  border: none;
+  background: none;
+}
+
+.action_view_btn,
+.action_cancel_btn,
+.action_download_btn {
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.action_cancel_btn {
+  fill: red;
+}
+
+/* ******************* MEDIA QUERY START ********************* */
+
+/* 666px */
+@media (max-width: 666px) {
+  .dashboard_wrapper {
+    margin: 18% 5% 24% 5%;
+  }
+  .db_wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: 3%;
+  }
+  .footer__flex_wrapper,
+  .footer__links_section {
+    flex-direction: column;
+  }
+
+  .link_section_first {
+    margin-top: 1rem;
+  }
+
+  .order_table {
+  }
+}
+
+/* 550px */
+@media (max-width: 550px) {
+  .dashboard_wrapper {
+    margin: 22% 5% 28% 5%;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .dashboard_wrapper {
+    margin: 24% 5% 38% 5%;
+  }
+}
+
+/* 360px */
+@media (max-width: 360px) {
+  .dashboard_wrapper {
+    margin: 28% 5% 40% 5%;
+  }
+}
