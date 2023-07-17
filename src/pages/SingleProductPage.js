@@ -162,7 +162,7 @@ const SingleProductPage = (props) => {
               {single_product.name}
             </h1>
 
-            <div className="sellername_wrap">
+            {/* <div className="sellername_wrap">
               {single_product.sellers === null ? (
                 <p>seller name</p>
               ) : (
@@ -178,7 +178,7 @@ const SingleProductPage = (props) => {
                   {single_product.sellers.name}
                 </Link>
               )}
-            </div>
+            </div> */}
 
             <div className="singleproduct_price_addtocart_wrapper">
               <div className="singleproduct_price_wrap">
@@ -199,17 +199,51 @@ const SingleProductPage = (props) => {
                   <p style={{ color: "darkcyan" }}>Delivered on </p>
                   <p>Tuesday, 11 July.</p>
                 </div>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-                  <br />
-                  <img
-                    src={images.return_exchange}
-                    alt=""
-                    className="rtn_exchange"
-                  />
-                  <p>
-                    <b>7 Days Return or Replacement.</b>
-                  </p>
+                <div className="sellerInfo">
+                  {/* <br />  */}
+                  <div className="seller_details">
+                    <h6>Seller</h6>
+                    <div>
+                      {/* <h6 style={{ paddingLeft: "2px" }}>
+                        {single_product.sellers.name}
+                      </h6> */}
+                      <div className="sellername_wrap">
+                        {single_product.sellers === null ? (
+                          <p>seller name</p>
+                        ) : (
+                          <Link
+                            to={{
+                              pathname: "/sellers",
+                              state: {
+                                seller_id: single_product.sellers.id,
+                                seller_name: single_product.sellers.name,
+                              },
+                            }}
+                            className="sellername_text">
+                            {single_product.sellers.name}
+                          </Link>
+                        )}
+                      </div>
+                      <img
+                        src={images.return_exchange}
+                        alt=""
+                        className="rtn_exchange"
+                      />
+                      <b>7 Days Return or Replacement.</b>
+                    </div>
+                  </div>
+                  {/* <div>
+                    <img
+                      src={images.return_exchange}
+                      alt=""
+                      className="rtn_exchange"
+                    />
+                  </div> */}
+                  <div>
+                    {/* <p>
+                      <b>7 Days Return or Replacement.</b>
+                    </p> */}
+                  </div>
                 </div>
                 <ul>
                   <li>hello</li>

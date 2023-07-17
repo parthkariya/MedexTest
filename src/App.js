@@ -18,6 +18,7 @@ import Help from "./pages/Help";
 import Dashboard from "./pages/Dashboard";
 import ContactUs from "./pages/ContactUs";
 import Wishlist from "./container/wishlist";
+import Ticket from "./container/Ticket";
 // import { Footer, Navbar } from './components';
 // import { Banner, LearnMore, Popular, Products, Testimonials } from './container';
 
@@ -50,6 +51,7 @@ const App = () => (
         </PrivateRoute>
         <Route exact path="/ContactUs" component={ContactUs}></Route>
         <Route exact path="/Wishlist" component={Wishlist}></Route>
+        <Route exact path="/Ticket" component={Ticket}></Route>
       </Switch>
       <Footer />
     </Router>

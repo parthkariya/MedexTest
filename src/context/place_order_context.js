@@ -370,11 +370,11 @@ export const OrderProvider = ({ children }) => {
             type: CANCEL_ORDER_SUCCESS,
           });
           Notification("success", "Success!", res.data.message + "");
-          window.location.reload();
+          window.location.reload(true);
         }
       })
       .catch((err) => {
-        console.log(JSON.stringify(err, null, 2));
+        console.log(err);
         dispatch({ type: CANCEL_ORDER_ERROR });
       });
   };

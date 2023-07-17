@@ -17,6 +17,7 @@ import { FaFileAlt } from "react-icons/fa";
 import { isEditable } from "@testing-library/user-event/dist/utils";
 import OrderDetails from "../components/Order/OrderDetails";
 import { Link } from "react-router-dom";
+import TicketDetails from "../container/TicketDetails";
 
 const Dashboard = () => {
   window.scrollTo(0, 0);
@@ -46,6 +47,7 @@ const Dashboard = () => {
 
   const [_state, setStateAddress] = React.useState("");
   const [order_modal, setOrder_modal] = React.useState(false);
+  const [ticket_modal, setTicket_modal] = React.useState(false);
   const [orderData, setOrder_data] = React.useState("");
   const [shiping_address_id, setAddress_Id] = useState("");
 
@@ -70,7 +72,7 @@ const Dashboard = () => {
 
   const cancel_Order = (coId) => {
     var params = {
-      order_id: coId,
+      id: coId,
     };
     cancelOrder(params);
   };
@@ -287,8 +289,7 @@ const Dashboard = () => {
                         className="tandc"
                         to={{
                           pathname: `/TermsConditions`,
-                        }}
-                      >
+                        }}>
                         Terms and Conditions
                       </Link>
                     </div>
@@ -389,22 +390,28 @@ const Dashboard = () => {
                             </td>
                             <td className="action_val_cell">
                               <button
+                                className="ticket_details_btn"
+                                onClick={() => {
+                                  setTicket_modal(true);
+                                  getSingleOrderDetails(item.id, logintoken);
+                                }}>
+                                <FaFileAlt className="ticket_details_btn" />
+                              </button>
+
+                              <button
                                 className="action_view_btn"
                                 onClick={() => {
                                   setOrder_modal(true);
                                   getSingleOrderDetails(item.id, logintoken);
-                                }}
-                              >
-                                <FaFileAlt className="action_view_btn" /> 
+                                }}>
+                                <FaFileAlt className="action_view_btn" />
                               </button>
 
                               <a
                                 href="javasript:void(0);"
                                 title="Download Invoice"
                                 className="action_val_btn"
-                                
-                                onClick={() => mDownloadInvoice(item.id) }
-                              >
+                                onClick={() => mDownloadInvoice(item.id)}>
                                 <MdDownloadForOffline className="action_download_btn" />
                               </a>
                               {item.order_status_id == "1" ? (
@@ -412,8 +419,7 @@ const Dashboard = () => {
                                   onClick={() => {
                                     cancel_Order(item.id);
                                   }}
-                                  className="action_val_btn"
-                                >
+                                  className="action_val_btn">
                                   <MdCancel className="action_cancel_btn" />
                                 </button>
                               ) : null}
@@ -438,6 +444,11 @@ const Dashboard = () => {
           <OrderDetails
             order_modal={order_modal}
             setOrder_modal={setOrder_modal}
+          />
+
+          <TicketDetails
+            ticket_modal={ticket_modal}
+            setTicket_modal={setTicket_modal}
           />
         </div>
       ) : (

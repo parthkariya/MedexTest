@@ -273,8 +273,7 @@ const Dashboard = () => {
                         className="tandc"
                         to={{
                           pathname: `/TermsConditions`,
-                        }}
-                      >
+                        }}>
                         Terms and Conditions
                       </Link>
                     </div>
@@ -379,8 +378,7 @@ const Dashboard = () => {
                                 onClick={() => {
                                   setOrder_modal(true);
                                   getSingleOrderDetails(item.id, logintoken);
-                                }}
-                              >
+                                }}>
                                 <FaFileAlt className="action_view_btn" />
                               </button>
 
@@ -388,8 +386,7 @@ const Dashboard = () => {
                                 href="javasript:void(0);"
                                 title="Download Invoice"
                                 className="action_val_btn"
-                                onClick={() => mDownloadInvoice(item.id)}
-                              >
+                                onClick={() => mDownloadInvoice(item.id)}>
                                 <MdDownloadForOffline className="action_download_btn" />
                               </a>
                               {item.order_status_id == "1" ? (
@@ -397,8 +394,7 @@ const Dashboard = () => {
                                   onClick={() => {
                                     cancel_Order(item.id);
                                   }}
-                                  className="action_val_btn"
-                                >
+                                  className="action_val_btn">
                                   <MdCancel className="action_cancel_btn" />
                                 </button>
                               ) : null}
