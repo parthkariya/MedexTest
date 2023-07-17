@@ -234,6 +234,7 @@ tr:nth-child(even) {
   background: none;
 }
 
+.ticket_details_btn,
 .action_view_btn,
 .action_cancel_btn,
 .action_download_btn {

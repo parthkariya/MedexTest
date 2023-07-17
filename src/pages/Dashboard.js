@@ -12,6 +12,7 @@ import {
   MdOutlineDelete,
   MdDownloadForOffline,
 } from "react-icons/md";
+import { IoTicket } from "react-icons/io5";
 import { GiWallet } from "react-icons/gi";
 import { FaFileAlt } from "react-icons/fa";
 import { isEditable } from "@testing-library/user-event/dist/utils";
@@ -395,7 +396,7 @@ const Dashboard = () => {
                                   setTicket_modal(true);
                                   getSingleOrderDetails(item.id, logintoken);
                                 }}>
-                                <FaFileAlt className="ticket_details_btn" />
+                                <IoTicket className="ticket_details_btn" />
                               </button>
 
                               <button
