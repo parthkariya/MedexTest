@@ -17,14 +17,14 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
               <p className="od-title"> &nbsp; Ticket Details </p>
 
               <div className="od_sub_container_r1">
-                <div className="od_sub_container flex1">
-                  <div className="header_details">
+                {/* <div className="od_sub_container flex1"> */}
+                {/* <div className="header_details">
                     <div className="third_input">
                       {/* <MdCancel onClick={() => setOrder_modal(false)} /> */}
-                    </div>
-                  </div>
+                {/* </div>
+                  </div> */}
 
-                  <p className="od-info-title">Order Info :</p>
+                {/* <p className="od-info-title">Order Info :</p>
 
                   <hr className="od-divider" />
 
@@ -43,9 +43,9 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                     {moment(single_order_details.created_at).format(
                       "DD-MM-YYYY"
                     )}
-                  </p>
-                  <div className="third_input">
-                    <p>
+                  </p> */}
+                {/* <div className="third_input"> */}
+                {/* <p>
                       <b>Order Status</b> :{" "}
                       {single_order_details.order_status_id == "1"
                         ? "WAITING"
@@ -60,9 +60,9 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                         : single_order_details.order_status_id == "6"
                         ? "RETURNED"
                         : null}
-                    </p>
-                  </div>
-                </div>
+                    </p> */}
+                {/* </div> */}
+                {/* </div> */}
                 <div className="od_sub_container flex3">
                   <div className="header_details">
                     <div className="">
