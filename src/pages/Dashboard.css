@@ -227,6 +227,7 @@ tr:nth-child(even) {
   align-items: center;
   justify-content: start;
   gap: 10px;
+  height: 61px;
 }
 
 .action_val_btn {

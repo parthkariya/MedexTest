@@ -3,12 +3,15 @@ import { MdCancel } from "react-icons/md";
 import { useOrderContext } from "../context/place_order_context";
 import moment from "moment";
 import { width } from "@mui/system";
+import "./Ticket.css";
 
 const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
   const { single_order_details } = useOrderContext();
   return (
     <main className={ticket_modal ? "show dialog" : " dialog "}>
-      <div className="new_address_section">
+      <div
+        className="new_address_section"
+        style={{ backgroundColor: "#f1f3f5" }}>
         {single_order_details === {} ||
         single_order_details === undefined ||
         single_order_details === "" ? null : (
@@ -16,15 +19,15 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
             <div className="main_container">
               <p className="od-title"> &nbsp; Ticket Details </p>
 
-              <div className="od_sub_container_r1">
-                {/* <div className="od_sub_container flex1"> */}
-                {/* <div className="header_details">
+              {/* <div className="od_sub_container_r1"> */}
+              {/* <div className="od_sub_container flex1"> */}
+              {/* <div className="header_details">
                     <div className="third_input">
                       {/* <MdCancel onClick={() => setOrder_modal(false)} /> */}
-                {/* </div>
+              {/* </div>
                   </div> */}
 
-                {/* <p className="od-info-title">Order Info :</p>
+              {/* <p className="od-info-title">Order Info :</p>
 
                   <hr className="od-divider" />
 
@@ -44,8 +47,8 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                       "DD-MM-YYYY"
                     )}
                   </p> */}
-                {/* <div className="third_input"> */}
-                {/* <p>
+              {/* <div className="third_input"> */}
+              {/* <p>
                       <b>Order Status</b> :{" "}
                       {single_order_details.order_status_id == "1"
                         ? "WAITING"
@@ -61,16 +64,16 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                         ? "RETURNED"
                         : null}
                     </p> */}
-                {/* </div> */}
-                {/* </div> */}
-                <div className="od_sub_container flex3">
-                  <div className="header_details">
+              {/* </div> */}
+              {/* </div> */}
+              {/* <div className="od_sub_container flex3"> */}
+              {/* <div className="header_details">
                     <div className="">
-                      {/* <MdCancel onClick={() => setOrder_modal(false)} /> */}
-                    </div>
-                  </div>
+                      <MdCancel onClick={() => setOrder_modal(false)} />
+                     </div>
+                  </div>  */}
 
-                  <p className="od-info-title">Customer Info :</p>
+              {/* <p className="od-info-title">Customer Info :</p>
 
                   <hr className="od-divider" />
 
@@ -94,9 +97,9 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                       <b>Mobile No : </b>
                       {single_order_details.shipping_mobile}
                     </p>
-                  </div>
+                  </div> */}
 
-                  <div>
+              {/* <div>
                     <p>
                       <b>Shipping Address : </b>
                       {single_order_details &&
@@ -109,9 +112,9 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                       {single_order_details.shipping_state_name} ,
                       {single_order_details.shipping_country_name}
                     </p>
-                  </div>
+                  </div> */}
 
-                  <div>
+              {/* <div>
                     <p>
                       <b>GST Number : </b>
                       {single_order_details &&
@@ -119,11 +122,11 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                         single_order_details.address.gst_no &&
                         single_order_details.address.gst_no}
                     </p>
-                  </div>
-                </div>
-              </div>
+                  </div> */}
+              {/* </div> */}
+              {/* </div> */}
 
-              <div>
+              {/* <div>
                 <div className="od_sub_container od_cont_sroll">
                   <p className="od-info-title">Product Info :</p>
 
@@ -183,19 +186,19 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                       </p>
                     </div>
 
-                    {/* <div>
+                    <div>
                       <p>
                         <b>Discount</b> :{" "}
                         {Number(single_order_details.taxable_price)}
                       </p>
-                    </div> */}
+                    </div>
 
-                    {/* <div>
+                    <div>
                       <p>
                         <b>Total Price</b> :{" "}
                         {Number(single_order_details.price)}
                       </p>
-                    </div> */}
+                    </div>
 
                     <div>
                       <p>
@@ -218,6 +221,53 @@ const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
                       </p>
                     </div>
                   </div>
+                </div>
+              </div> */}
+
+              <div className="Ticket_details_main">
+                <div className="ticket_order">
+                  <div style={{ width: "155px" }}>
+                    <p>Order no. : </p>
+                  </div>
+                  <div>
+                    <p>3</p>
+                  </div>
+                </div>
+                <div className="ticket_pname">
+                  <div style={{ width: "155px" }}>
+                    <p>Product name : </p>
+                  </div>
+                  <div>
+                    <p>Polo</p>
+                  </div>
+                </div>
+                <div className="ticket_subject">
+                  <div style={{ width: "155px" }}>
+                    <p>Subject : </p>
+                  </div>
+                  <div>
+                    <p>Query related to product</p>
+                  </div>
+                </div>
+                <div className="ticket_pdesc">
+                  <div style={{ width: "155px" }}>
+                    <p>Product description : </p>
+                  </div>
+                  <div style={{ width: "330px" }}>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Cupiditate, nam vero. Lorem ipsum dolor sit amet
+                      consectetur adipisicing elit. Ipsa voluptate, quibusdam
+                      cumque sequi delectus accusantium consequuntur ipsum alias
+                      est vitae.
+                    </p>
+                  </div>
+                </div>
+                <div className="ticket_image">
+                  <div>
+                    <p>Image: </p>
+                  </div>
+                  <div></div>
                 </div>
               </div>
             </div>
