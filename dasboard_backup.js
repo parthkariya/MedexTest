@@ -53,7 +53,6 @@ const Dashboard = () => {
   const [shiping_address_id, setAddress_Id] = useState("");
 
   const [isEdit, setEdit] = useState(false);
-  const [mainid, setId] = useState();
   const [editData, setEditData] = useState("");
 
   useEffect(() => {
@@ -396,7 +395,6 @@ const Dashboard = () => {
                                 onClick={() => {
                                   setTicket_modal(true);
                                   getSingleOrderDetails(item.id, logintoken);
-                                  setId(item.id);
                                 }}>
                                 <IoTicket className="ticket_details_btn" />
                               </button>
@@ -452,7 +450,6 @@ const Dashboard = () => {
           <TicketDetails
             ticket_modal={ticket_modal}
             setTicket_modal={setTicket_modal}
-            mainid={mainid}
           />
         </div>
       ) : (

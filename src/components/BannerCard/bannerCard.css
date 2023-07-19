@@ -129,6 +129,7 @@
   }
 
   .overly_singlecard-img_wrapper img {
+    object-fit: cover;
     border-radius: 7px 7px 0 0;
   }
 

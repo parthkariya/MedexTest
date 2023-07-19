@@ -33,3 +33,5 @@ export const contact_us = BaseUrl + "contact-us";
 export const search_url = BaseUrl + "search-new/product";
 export const wallet_url = BaseUrl + "wallet";
 export const cancel_order = BaseUrl + "cancel-order";
+export const order_ticket = BaseUrl + "order-ticket";
+export const order_ticket_view = BaseUrl + "order-ticket-view";

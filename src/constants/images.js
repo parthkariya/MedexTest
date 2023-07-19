@@ -15,6 +15,7 @@ import card_08 from "../assets/card_08.jpg";
 import wapp from "../assets/wapp.png";
 import gmail from "../assets/gmail.png";
 
+import noimage from "../assets/noimage.jpg";
 import left from "../assets/left.png";
 import right from "../assets/right.png";
 
@@ -62,4 +63,5 @@ export default {
 
   location_icon,
   return_exchange,
+  noimage,
 };

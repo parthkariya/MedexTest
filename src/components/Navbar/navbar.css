@@ -69,6 +69,7 @@ marquee {
   gap: 1rem;
   cursor: pointer;
   position: relative;
+  /* margin-right: -65px; */
 }
 
 .nav_alt_logo {
@@ -81,8 +82,8 @@ marquee {
 
 .shopping_cart_noti {
   position: absolute;
-  top: -52%;
-  left: 9%;
+  top: -4%;
+  left: 4%;
   background: #0c8599;
   color: #fff;
   font-size: 80%;
@@ -101,6 +102,18 @@ marquee {
 }
 
 .dropbtn {
+  font-size: 16px;
+  font-family: var(--font-base);
+  font-weight: 500;
+  padding: 5px;
+  background: #0c8599;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  gap: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -223,12 +236,54 @@ marquee {
 
 @media (max-width: 1440px) {
   .navbar__wrapper {
-    padding: 1rem 6rem;
+    padding: 1rem;
   }
 
   .search-input {
     width: 80%;
     padding: 0 7px;
+  }
+}
+
+@media (max-width: 800px) {
+  .search-box {
+    width: 300px;
+  }
+
+  .banner_contectus_section {
+    align-items: center !important;
+  }
+}
+@media (max-width: 750px) {
+  .search-box {
+    width: 250px;
+  }
+
+  .nav_links_section {
+    padding: 12px;
+  }
+
+  .banner_contectus_section {
+    align-items: center !important;
+  }
+
+  .nav__links {
+    gap: 0px !important;
+  }
+}
+@media (max-width: 650px) {
+  .search-box {
+    width: 200px;
+  }
+}
+@media (max-width: 575px) {
+  .search-box {
+    width: 31%;
+    left: 45%;
+  }
+
+  .search-input {
+    width: 60%;
   }
 }
 
@@ -246,13 +301,20 @@ marquee {
   }
 
   .navbar__wrapper {
-    padding: 0.5rem 2rem;
+    /* padding: 0.5rem 2rem; */
   }
 
   .text_logo {
     display: none;
   }
 
+  .search-box {
+    left: 35% !important;
+  }
+
+  .nav__logos {
+    gap: 0px;
+  }
   .search-box:hover > .search-input {
     width: 100px;
     padding: 0 7px;

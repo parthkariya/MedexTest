@@ -1,0 +1,92 @@
+.inq-card-main {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  gap: 25px;
+  background-color: var(--color-light-green);
+  margin-bottom: 10px;
+  position: relative;
+  border: solid black 1px;
+  border-radius: 4px;
+}
+
+.inq-card-sec {
+  width: 100%;
+  height: 100%;
+  margin-top: 140px;
+}
+
+.inq-card-con {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.inq-card-imgbox {
+  width: 200px;
+  height: 165px;
+  border: solid black 1px;
+}
+
+.inq-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inq-card-icon {
+  width: 20px;
+  height: 20px;
+  color: red;
+}
+
+.inq-card-txt {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 170px;
+}
+
+.field-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-inq-card {
+  background: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 1%;
+}
+
+.inq-card-txt-inner {
+  font-size: 16px;
+  font-weight: 400;
+  min-width: ;
+}
+
+.ticket-viw-head {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #274480;
+}
+
+@media screen and (max-width: 768px) {
+  .inq-card-main {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .inq-card-main {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .inq-card-main {
+    padding: 10px;
+  }
+}

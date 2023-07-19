@@ -82,10 +82,10 @@ const CartItem = (props) => {
                           to={{
                             pathname: "/SingleProductPage",
                             state: item.id,
-                          }}
-                        >
+                          }}>
                           <p className="cart_item_name">{item.name}</p>
                         </Link>
+                        <br />
                         <div>
                           <button
                             type="button"
@@ -93,8 +93,7 @@ const CartItem = (props) => {
                               removeCartItem(item);
                               // console.log(item);
                             }}
-                            className="cartitem_remove_link"
-                          >
+                            className="cartitem_remove_link">
                             Remove
                           </button>
                         </div>
@@ -127,11 +126,10 @@ const CartItem = (props) => {
                                       descrease_qty(index, offer_qty);
                                   }
                                 }
-                              }}
-                            >
+                              }}>
                               -
                             </button>
-                            &nbsp;&nbsp; {item.user_qty} &nbsp;&nbsp;
+                            {item.user_qty}
                             <button
                               type="button"
                               className="qty_plus"
@@ -150,8 +148,7 @@ const CartItem = (props) => {
                                       increase_qty(index, offer_qty);
                                   }
                                 }
-                              }}
-                            >
+                              }}>
                               +
                             </button>
                           </p>
@@ -218,32 +215,27 @@ const CartItem = (props) => {
                   {isLogin ? (
                     <Link
                       className="check_out_btn"
-                      to={{ pathname: "/CheckOutPage" }}
-                    >
+                      to={{ pathname: "/CheckOutPage" }}>
                       Check-out
                     </Link>
                   ) : (
                     <Link
                       className="check_out_btn"
-                      onClick={() => setShowlogin(true)}
-                    >
+                      onClick={() => setShowlogin(true)}>
                       Check-out
                     </Link>
                   )}
-                    
                 </div>
-
               );
             })
           : null}
-          <div className="back_to_shop_section">
+        <div className="back_to_shop_section">
           <Link to={{ pathname: "/" }}>
-                    <p className="back_to_shop">Back To Shopping</p>
-                  </Link>
-          </div>
-          
+            <p className="back_to_shop">Back To Shopping</p>
+          </Link>
+        </div>
       </div>
-      
+
       <LoginComponent showscreen={showscreen} setShowlogin={setShowlogin} />
     </section>
   );

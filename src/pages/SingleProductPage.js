@@ -202,8 +202,11 @@ const SingleProductPage = (props) => {
                 <div className="sellerInfo">
                   {/* <br />  */}
                   <div className="seller_details">
-                    <h6>Seller</h6>
-                    <div>
+                    <div style={{ display: "flex" }}>
+                      <p style={{ fontSize: "16px", fontWeight: "700" }}>
+                        Seller :
+                      </p>
+
                       {/* <h6 style={{ paddingLeft: "2px" }}>
                         {single_product.sellers.name}
                       </h6> */}
@@ -224,6 +227,8 @@ const SingleProductPage = (props) => {
                           </Link>
                         )}
                       </div>
+                    </div>
+                    <div>
                       <img
                         src={images.return_exchange}
                         alt=""

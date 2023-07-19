@@ -19,6 +19,7 @@ import Dashboard from "./pages/Dashboard";
 import ContactUs from "./pages/ContactUs";
 import Wishlist from "./container/wishlist";
 import Ticket from "./container/Ticket";
+import OrderTicketView from "./components/orderticketview/OrderTicketView";
 // import { Footer, Navbar } from './components';
 // import { Banner, LearnMore, Popular, Products, Testimonials } from './container';
 
@@ -52,6 +53,7 @@ const App = () => (
         <Route exact path="/ContactUs" component={ContactUs}></Route>
         <Route exact path="/Wishlist" component={Wishlist}></Route>
         <Route exact path="/Ticket" component={Ticket}></Route>
+        <Route exact path="/ticketdetails" component={OrderTicketView}></Route>
       </Switch>
       <Footer />
     </Router>

@@ -3,271 +3,207 @@ import { MdCancel } from "react-icons/md";
 import { useOrderContext } from "../context/place_order_context";
 import moment from "moment";
 import { width } from "@mui/system";
-import "./Ticket.css";
+import axios from "axios";
+import { accept_header, order_ticket } from "../Utils/constatns";
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import { useDropzone } from "react-dropzone";
 
-const TicketDetails = ({ ticket_modal, setTicket_modal }) => {
+const TicketDetails = ({ ticket_modal, setTicket_modal, mainid }) => {
   const { single_order_details } = useOrderContext();
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    console.log("aaa", mainid);
+  });
+  const [file, setFile] = useState();
+  const [loading, SetLoading] = useState(false);
+  // const [orderno, setOrderno] = useState();
+  const [productname, setproductname] = useState();
+  const [subject, setSubject] = useState();
+  const [description, setDescription] = useState();
+  // const [loading, SetLoading] = useState(false);
+
+  function handleChange(e) {
+    console.log(e.target.files);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*",
+    onDrop: (acceptedFiles) => {
+      console.log("acceptedFiles", acceptedFiles);
+      {
+        setFiles(
+          acceptedFiles.map((file) =>
+            Object.assign(file, {
+              preview: URL.createObjectURL(file),
+            })
+          )
+        );
+      }
+      if (acceptedFiles.length === 0) {
+        window.location.reload(true);
+      }
+    },
+  });
+
+  const thumbs = files.map((file) => (
+    <img
+      src={file.preview}
+      style={{ width: "100%", height: "100%", maxHeight: "175px" }}
+      className="img-fluid"
+      alt="file"
+    />
+  ));
+
+  const TicketApi = async () => {
+    SetLoading(true);
+    let userid = localStorage.getItem("token");
+    console.log("token is", userid);
+
+    const formdata = new FormData();
+    formdata.append("order_number", mainid);
+    formdata.append("product_name", productname);
+    formdata.append("subject", subject);
+    formdata.append("problem_description", description);
+    await formdata.append("image", files[0]);
+
+    console.log("ticket formdata is", formdata);
+
+    axios
+      .post(order_ticket, formdata, {
+        headers: {
+          Accept: accept_header,
+          Authorization: "Bearer " + JSON.parse(userid),
+        },
+      })
+      .then((res) => {
+        console.log("ticket data", res.data);
+        if (res.data.success == 1) {
+          SetLoading(false);
+          setTicket_modal(false);
+        } else {
+          null;
+          SetLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.log("err", err);
+        setLoading(false);
+      });
+  };
   return (
     <main className={ticket_modal ? "show dialog" : " dialog "}>
-      <div
-        className="new_address_section"
-        style={{ backgroundColor: "#f1f3f5" }}>
+      <div className="new_address_section ticket-add-main">
         {single_order_details === {} ||
         single_order_details === undefined ||
         single_order_details === "" ? null : (
           <>
-            <div className="main_container">
-              <p className="od-title"> &nbsp; Ticket Details </p>
-
-              {/* <div className="od_sub_container_r1"> */}
-              {/* <div className="od_sub_container flex1"> */}
-              {/* <div className="header_details">
-                    <div className="third_input">
-                      {/* <MdCancel onClick={() => setOrder_modal(false)} /> */}
-              {/* </div>
-                  </div> */}
-
-              {/* <p className="od-info-title">Order Info :</p>
-
-                  <hr className="od-divider" />
-
-                  <p>
-                    <b>Order Number</b> : {single_order_details.order_number}
-                  </p>
-
-                  <p>
-                    <b>Payment Type</b> : {single_order_details.payment_type}
-                  </p>
-
-                  <p>
-                    <span>
-                      <b>Order Date</b> :
-                    </span>{" "}
-                    {moment(single_order_details.created_at).format(
-                      "DD-MM-YYYY"
-                    )}
-                  </p> */}
-              {/* <div className="third_input"> */}
-              {/* <p>
-                      <b>Order Status</b> :{" "}
-                      {single_order_details.order_status_id == "1"
-                        ? "WAITING"
-                        : single_order_details.order_status_id == "2"
-                        ? "PREPARING"
-                        : single_order_details.order_status_id == "3"
-                        ? "ON THE WAY"
-                        : single_order_details.order_status_id == "4"
-                        ? "COMPLETED"
-                        : single_order_details.order_status_id == "5"
-                        ? "CANCELLED"
-                        : single_order_details.order_status_id == "6"
-                        ? "RETURNED"
-                        : null}
-                    </p> */}
-              {/* </div> */}
-              {/* </div> */}
-              {/* <div className="od_sub_container flex3"> */}
-              {/* <div className="header_details">
-                    <div className="">
-                      <MdCancel onClick={() => setOrder_modal(false)} />
-                     </div>
-                  </div>  */}
-
-              {/* <p className="od-info-title">Customer Info :</p>
-
-                  <hr className="od-divider" />
-
+            <div>
+              <div className="tic_title">Create Ticket</div>
+              <div className="ticket_main">
+                {/* <p>Name</p>
+        <input className="form-control" type="text" id="name" required /> */}
+                <div className="form_style">
                   <div>
-                    <p>
-                      <b>Customer Name</b> :{" "}
-                      {single_order_details.shipping_fullname}
-                    </p>
+                    <label style={{ fontWeight: "500" }}>Product name</label>
+                    <input
+                      className="form-control"
+                      type="Product name"
+                      required
+                      value={productname}
+                      onChange={(e) => setproductname(e.target.value)}
+                    />
                   </div>
                   <div>
-                    <p>
-                      <b>ID No : </b>
-                      {single_order_details &&
-                        single_order_details.address &&
-                        single_order_details.address.address_id_no &&
-                        single_order_details.address.address_id_no}
-                    </p>
+                    <label style={{ fontWeight: "500" }}>Subject</label>
+                    <input
+                      className="form-control"
+                      required
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                    />
                   </div>
                   <div>
-                    <p>
-                      <b>Mobile No : </b>
-                      {single_order_details.shipping_mobile}
-                    </p>
-                  </div> */}
-
-              {/* <div>
-                    <p>
-                      <b>Shipping Address : </b>
-                      {single_order_details &&
-                      single_order_details.address &&
-                      single_order_details.address.address
-                        ? single_order_details.address.address
-                        : "Address Not Found"}{" "}
-                      {single_order_details.shipping_pincode} ,
-                      {single_order_details.shipping_city_name} ,
-                      {single_order_details.shipping_state_name} ,
-                      {single_order_details.shipping_country_name}
-                    </p>
-                  </div> */}
-
-              {/* <div>
-                    <p>
-                      <b>GST Number : </b>
-                      {single_order_details &&
-                        single_order_details.address &&
-                        single_order_details.address.gst_no &&
-                        single_order_details.address.gst_no}
-                    </p>
-                  </div> */}
-              {/* </div> */}
-              {/* </div> */}
-
-              {/* <div>
-                <div className="od_sub_container od_cont_sroll">
-                  <p className="od-info-title">Product Info :</p>
-
-                  <hr className="od-divider" />
-
-                  <div>
-                    <p>
-                      <div className="od-pro-sec">
-                        <div className="od-pro-header">
-                          <p className="flex-2">
-                            <b>Product Name</b>
-                          </p>
-                          <p className="flex-1">
-                            <b>Qty.</b>
-                          </p>
-
-                          <p className="flex-1">
-                            <b>Price</b>
-                          </p>
+                    <label style={{ fontWeight: "500" }}>
+                      Product description
+                    </label>
+                    <textarea
+                      className="form-control"
+                      required
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                    />
+                  </div>
+                  <div className="mm_img_upload_wrapp">
+                    {/* single upload image */}
+                    <div className="myprofile_inner_sec2">
+                      <h6 style={{ marginBottom: "10px" }}>
+                        Upload the Image <br />
+                        (200 x 200 pixels)
+                      </h6>
+                      {files && files.length > 0 ? (
+                        <div className="myprofile_inner_sec2_img_upload">
+                          {thumbs}
                         </div>
-                        <hr className="od-divider"></hr>
-                        {single_order_details &&
-                        single_order_details.order_lines &&
-                        single_order_details.order_lines.length > 0
-                          ? single_order_details.order_lines.map(
-                              (item, index) => {
-                                return (
-                                  <div className="od-pro-details">
-                                    <p className="od-pro-name flex-2">
-                                      {item.product_name}
-                                    </p>
-                                    <p className="flex-1">
-                                      {item.total_quantity}
-                                    </p>
-                                    <p className="flex-1">
-                                      &#x20B9;{item.price}
-                                    </p>
-                                  </div>
-                                );
-                              }
-                            )
-                          : null}
-                      </div>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="od_sub_container">
-                  <div>
-                    <div>
-                      <p className="od-info-title">Order Summary :</p>
-                      <hr className="od-divider" />{" "}
-                      <p>
-                        <b>Total Price</b> :{" "}
-                        {Number(single_order_details.price) +
-                          Number(single_order_details.taxable_price)}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>
-                        <b>Discount</b> :{" "}
-                        {Number(single_order_details.taxable_price)}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>
-                        <b>Total Price</b> :{" "}
-                        {Number(single_order_details.price)}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>
-                        <b>Additional Shipping Charges</b> :{" "}
-                        {Number(single_order_details.shipping_rate)}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>
-                        <b>Deducted Wallet Amount</b> :{" "}
-                        {Number(single_order_details.wallet_amount)}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>
-                        <b>To Pay</b> :{" "}
-                        {Number(single_order_details.total_price)}
-                      </p>
+                      ) : (
+                        <div
+                          style={{ width: "100%" }}
+                          {...getRootProps({ className: "dropzone" })}>
+                          <div className="myprofile_inner_sec2_img_upload">
+                            <AiOutlineCloudUpload
+                              style={{
+                                width: "60px",
+                                height: "60px",
+                                color: "var(--color-orange)",
+                                marginBottom: "10px",
+                              }}
+                            />
+                            <h4>.PDF .JPG .PNG</h4>
+                            <p>You can also upload file by</p>
+                            <input
+                              {...getInputProps()}
+                              accept="image/jpeg, image/jpg, image/png, image/eps"
+                              type="file"
+                              name="photos"
+                            />
+                            <button
+                              type="button"
+                              className="click_upload_btn"
+                              style={{ background: "none", border: "none" }}>
+                              clicking here
+                            </button>
+                            {/* <a href="">clicking here</a> */}
+                          </div>
+                          <div className="btnn-main">
+                            <button
+                              className="btn btn-orange"
+                              type="button"
+                              style={{ marginBottom: "10px" }}
+                              onClick={() => {
+                                // setFiles([]);
+                              }}>
+                              Upload File
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                      {/* <div className="myprofile_upload_img_btn_wrapp"> */}
+                      <button
+                        className="btn btn-blue"
+                        onClick={() => setFiles([])}>
+                        Cancel
+                      </button>
+                      {/* </div> */}
                     </div>
                   </div>
-                </div>
-              </div> */}
-
-              <div className="Ticket_details_main">
-                <div className="ticket_order">
-                  <div style={{ width: "155px" }}>
-                    <p>Order no. : </p>
-                  </div>
-                  <div>
-                    <p>3</p>
-                  </div>
-                </div>
-                <div className="ticket_pname">
-                  <div style={{ width: "155px" }}>
-                    <p>Product name : </p>
-                  </div>
-                  <div>
-                    <p>Polo</p>
-                  </div>
-                </div>
-                <div className="ticket_subject">
-                  <div style={{ width: "155px" }}>
-                    <p>Subject : </p>
-                  </div>
-                  <div>
-                    <p>Query related to product</p>
-                  </div>
-                </div>
-                <div className="ticket_pdesc">
-                  <div style={{ width: "155px" }}>
-                    <p>Product description : </p>
-                  </div>
-                  <div style={{ width: "330px" }}>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Cupiditate, nam vero. Lorem ipsum dolor sit amet
-                      consectetur adipisicing elit. Ipsa voluptate, quibusdam
-                      cumque sequi delectus accusantium consequuntur ipsum alias
-                      est vitae.
-                    </p>
-                  </div>
-                </div>
-                <div className="ticket_image">
-                  <div>
-                    <p>Image: </p>
-                  </div>
-                  <div></div>
+                  <br />
+                  <button
+                    className="tic_btn"
+                    type="submit"
+                    onClick={() => TicketApi()}>
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>

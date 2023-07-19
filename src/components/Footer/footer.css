@@ -10,7 +10,7 @@
 
 .footer__flex_wrapper {
   display: flex;
-
+  padding-left: 40px;
   margin-top: 1.5rem;
   justify-content: space-between;
 }
@@ -118,15 +118,15 @@ html {
     right: 40px;
   }
 
-  
-  /* .float_wapp2 {
-    width: 3.5rem;
-    height: 3.5rem;
+  .float_wapp2 {
+    width: 3rem;
+    height: 3rem;
     bottom: 100px;
-    right: 40px;
-  } */
+    right: 45px;
+  }
 
   .footer__flex_wrapper {
+    padding-left: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;

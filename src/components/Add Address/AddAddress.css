@@ -13,6 +13,7 @@
   opacity: 0;
   visibility: hidden;
 }
+
 .show.dialog {
   opacity: 1;
   visibility: visible;
@@ -28,6 +29,7 @@
   background: rgb(0 0 0/ 0.4);
   cursor: pointer;
 }
+
 .dialog .loging-container {
   position: relative;
   z-index: 155;
@@ -70,7 +72,7 @@
 
 .main_container_close {
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 10px;
 }
 
@@ -292,6 +294,7 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
 /*  */
 @media (max-width: 1080px) {
   .new_address_section {

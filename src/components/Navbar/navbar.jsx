@@ -120,8 +120,7 @@ const Navbar = (props) => {
                     <div className="search_res_link">
                       <Link
                         to={{ pathname: "/SingleProductPage", state: val.id }}
-                        onClick={() => clearSearch()}
-                      >
+                        onClick={() => clearSearch()}>
                         {val.name.length > 0 ? val.name : null}
                       </Link>
                     </div>
@@ -132,9 +131,7 @@ const Navbar = (props) => {
           </div>
         </div>
 
-
         <div className="nav__logos">
-        
           <Link to={{ pathname: "/cart" }}>
             {/* <h1>{cart.length }</h1> */}
             <MdShoppingCart className="nav_alt_logo " />
@@ -145,34 +142,25 @@ const Navbar = (props) => {
             ) : null}
           </Link>
 
-          
-          
           {isLogin ? (
             <div className="dropdown">
               <MdPerson
-                className="nav_alt_logo dropbtn"
+                className="nav_alt_logo "
                 // onClick={() => logoutUser()}
               />
 
-
-              
               {isLogin ? (
                 <div class="dropdown-content">
                   <Link
                     className="footer_simple_link"
-                    to={{ pathname: `/Dashboard` }}
-                  >
+                    to={{ pathname: `/Dashboard` }}>
                     Dashboard
                   </Link>
-
-
-
 
                   <Link
                     className="footer_simple_link"
                     to={{ pathname: `/` }}
-                    onClick={() => logoutUser()}
-                  >
+                    onClick={() => logoutUser()}>
                     Logout
                   </Link>
                 </div>
@@ -198,23 +186,25 @@ const Navbar = (props) => {
   </div>
 </div> */}
 
-<div class="dropdown">
-    <button class="dropbtn">Account & List
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Profile</a>
-      <a href="#">Wallet</a>
-      <a href="#">Order history</a>
-      <a href="#">My account</a>
-      <a href="#">Wishlist</a>
-      <a href="#">Notifications</a>
-      <a href="#">Logout</a>
-      <a href="#">Request a non listed  <br/> product</a>
-
-    </div>
-  </div>
-       </div> 
+          <div class="dropdown">
+            <button class="dropbtn">
+              Account
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Profile</a>
+              <a href="#">Wallet</a>
+              <a href="#">Order history</a>
+              <a href="#">My account</a>
+              <a href="#">Wishlist</a>
+              <a href="#">Notifications</a>
+              <a href="#">Logout</a>
+              <a href="#">
+                Request a non listed <br /> product
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       <LoginComponent showscreen={showscreen} setShowlogin={setShowlogin} />
     </nav>

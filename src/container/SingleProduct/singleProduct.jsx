@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { images } from '../../constants'
-import './singleProduct.css'
+import React, { useEffect } from "react";
+import { images } from "../../constants";
+import "./singleProduct.css";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
@@ -16,16 +16,13 @@ import { FaGlobeAmericas } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
 
 import { GiChemicalDrop } from "react-icons/gi";
-import { Link } from 'react-router-dom';
-import { useProductsContext } from '../../context/products_context';
-import { useUserContext } from '../../context/user_context';
-import { single_product_url } from '../../Utils/constatns';
+import { Link } from "react-router-dom";
+import { useProductsContext } from "../../context/products_context";
+import { useUserContext } from "../../context/user_context";
+import { single_product_url } from "../../Utils/constatns";
 
 const SingleProduct = (props) => {
-  
-  return (
-   <div></div>
-  )
-}
+  return <div></div>;
+};
 
-export default SingleProduct
+export default SingleProduct;

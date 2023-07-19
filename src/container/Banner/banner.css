@@ -134,7 +134,8 @@ ul li ul li {
 /* TOP LINKS SECTION START */
 
 .nav_links_section {
-  padding: 10px 2rem;
+  /* padding: 10px 2rem; */
+  padding: 10px;
   max-width: 100%;
   background: #f1f3f5;
   align-items: center;
@@ -226,10 +227,26 @@ ul li ul li {
 @media (max-width: 1440px) {
   .banner__background {
     height: 70vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .nav_link {
     font-size: 14px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 858px) {
+  .nav_links_section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 650px) {
+  .banner__background {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -276,7 +293,7 @@ ul li ul li {
   }
 
   .search-box {
-    width: 40%;
+    width: 32%;
   }
 }
 

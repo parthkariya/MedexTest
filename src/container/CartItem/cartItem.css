@@ -45,8 +45,7 @@
   box-shadow: inset 0 0 3px 1px #22b8cf;
 }
 
-
-.back_to_shop_section{
+.back_to_shop_section {
   display: flex;
   flex-direction: row-reverse;
 }
@@ -79,11 +78,18 @@
 
 .flex_left {
   /* width: 55%; */
-  flex: 1;
-
   display: flex;
+  flex: 1;
+  /* flex-direction: column;
   /* text-align: left; */
   /* justify-content: center; */
+}
+
+@media (max-width: 1090px) {
+  .flex_left {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .flex_right {
@@ -100,7 +106,7 @@
 
 .cart_item_simple_text {
   float: left;
-  font-size: 1.2rem;
+  font-size: 16px;
   font-family: var(--font-base);
   font-weight: 600;
   text-align: center;
@@ -131,12 +137,12 @@
 .card_item_img_text_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 
 .card_item_img_text_wrapper p {
   font-family: var(--font-base);
-  font-size: 1.4rem;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -164,6 +170,8 @@
 .prices_text {
   align-items: center;
   margin: 8.1% 0;
+  display: flex;
+  gap: 20px;
 }
 
 .card_price {
@@ -180,7 +188,8 @@
   margin-left: 55%;
   align-items: center;
   margin-bottom: 10%;
-flex-direction: column;}
+  flex-direction: column;
+}
 
 .sub_total_wrap {
   display: flex;
@@ -284,6 +293,27 @@ flex-direction: column;}
 }
 
 @media (max-width: 750px) {
+  .card_item_img {
+    width: 100px;
+    border: 2px solid black;
+    object-fit: cover;
+    height: 100px;
+  }
+
+  .card_item_img_text_wrapper p,
+  .qty_no {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .quantity_box {
+    width: 80px;
+    padding: 0px;
+  }
+  .cart_item_simple_text {
+    font-size: 16px;
+    font-weight: 500;
+  }
   .flex_left_price_text {
     display: none !important;
   }
@@ -320,7 +350,7 @@ flex-direction: column;}
     font-size: 13px;
     font-weight: 500;
     display: flex;
-    
+
     order: -1;
   }
 
@@ -341,8 +371,7 @@ flex-direction: column;}
     align-items: center;
     /* margin-bottom: 10%; */
     flex-direction: column;
-  } 
-  
+  }
 
   .cart_img_flex_wrapper {
     flex-direction: column;
@@ -398,3 +427,9 @@ flex-direction: column;}
     padding: 0px 6px;
   }
 }
+
+/* width: 45%; 
+    flex: 1 1;
+    display: flex;
+    justify-content: space-between;
+} */

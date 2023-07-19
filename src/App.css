@@ -74,7 +74,7 @@ button:focus {
   font-family: var(--font-base);
   font-style: normal;
   font-weight: 500;
-  font-size: 40px;
+  /* font-size: 40px; */
   line-height: 58px;
 
   letter-spacing: -0.9px;
