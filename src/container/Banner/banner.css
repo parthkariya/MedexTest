@@ -196,6 +196,15 @@ ul li ul li {
   cursor: pointer;
 }
 
+@media (max-width: 650px) {
+  .contectus_btn {
+    font-size: 14px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
 /* BANNER OVERLY START */
 
 .banner_overly_wrapper {

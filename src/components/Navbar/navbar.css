@@ -65,6 +65,7 @@ marquee {
   /* position: relative;
   right: 8%; */
   display: flex;
+  flex-direction: row-reverse;
   align-items: flex-end;
   gap: 1rem;
   cursor: pointer;
@@ -83,7 +84,7 @@ marquee {
 .shopping_cart_noti {
   position: absolute;
   top: -4%;
-  left: 4%;
+  left: 92%;
   background: #0c8599;
   color: #fff;
   font-size: 80%;

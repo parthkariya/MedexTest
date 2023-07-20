@@ -218,9 +218,12 @@
 
 .qty_no {
   margin: 0;
+  width: 70px;
   font-size: 16px;
   font-family: var(--font-base);
   font-weight: 500;
+  display: flex;
+  justify-content: space-around;
 }
 
 .qty_plus {
