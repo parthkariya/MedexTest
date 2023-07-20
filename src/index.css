@@ -157,6 +157,14 @@ link {
   margin-bottom: 60px;
 }
 
+.cart-line {
+  width: 100%;
+  height: 1px;
+  background-color: #e2e2e2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .Products {
   display: flex;
   justify-content: space-around;

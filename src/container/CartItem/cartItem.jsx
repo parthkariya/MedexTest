@@ -70,6 +70,155 @@ const CartItem = (props) => {
               Number(item.bonus_offer_buy) + Number(item.bonus_offer_get);
             return (
               <div>
+                <div className="display_at_600">
+                  <div style={{ border: "solid #e2e2e2 1px" }}>
+                    <div className="img_sec">
+                      <div>
+                        <img src={item.image} alt="" className="pro_img" />
+                      </div>
+                      <div>
+                        <div className="card_item_img_text_wrapper">
+                          <Link
+                            to={{
+                              pathname: "/SingleProductPage",
+                              state: item.id,
+                            }}>
+                            <p className="cart_item_name">{item.name}</p>
+                          </Link>
+                        </div>
+                        <div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              removeCartItem(item);
+                              // console.log(item);
+                            }}
+                            className="cartitem_remove_link">
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="cart-line"></div>
+                    {/* <div className="price_sec">
+                      <div>
+                        <p>Price</p>
+                      </div>
+                      <div>
+                        <p className="cart_item_simple_text">
+                          &#x20B9; {item.price}
+                        </p>
+                      </div>
+                    </div> */}
+                    <div className="qty_sec">
+                      <div className="name_title">
+                        <p>Quantity</p>
+                      </div>
+
+                      <div
+                        style={{
+                          border: "solid #25ced1 2px",
+                          width: "112px",
+                        }}>
+                        <p className="qty_no">
+                          <button
+                            type="button"
+                            className="qty_plus"
+                            onClick={() => {
+                              if (item.user_qty > item.min_order_qty) {
+                                if (
+                                  item.bonus_offer_get === 0 &&
+                                  item.bonus_offer_buy === 0
+                                ) {
+                                  if (offer_qty < item.user_qty)
+                                    descrease_qty(index, 1);
+                                } else {
+                                  if (offer_qty <= item.user_qty - offer_qty)
+                                    descrease_qty(index, offer_qty);
+                                }
+                              }
+                            }}>
+                            -
+                          </button>
+                          {item.user_qty}
+                          <button
+                            type="button"
+                            className="qty_plus"
+                            onClick={() => {
+                              if (item.user_qty < item.max_order_qty) {
+                                if (
+                                  item.bonus_offer_get === 0 &&
+                                  item.bonus_offer_buy === 0
+                                )
+                                  increase_qty(index, 1);
+                                else {
+                                  if (
+                                    item.user_qty + offer_qty <
+                                    item.max_order_qty
+                                  )
+                                    increase_qty(index, offer_qty);
+                                }
+                              }
+                            }}>
+                            +
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="cart-line"></div>
+
+                    <div className="price_sec">
+                      <div className="name_title">
+                        <p>Price</p>
+                      </div>
+                      <div>
+                        <p className="cart_item_simple_text">
+                          &#x20B9; {item.price}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="cart-line"></div>
+
+                    <div className="gst_sec">
+                      <div className="name_title">
+                        <p>GST</p>
+                      </div>
+                      <div>
+                        <p className="cart_item_simple_text">
+                          ({item.gst}%) &#x20B9;
+                          {(
+                            item.price *
+                            (item.gst / 100) *
+                            item.user_qty
+                          ).toFixed(2)}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="cart-line"></div>
+
+                    <div className="tot_sec">
+                      <div className="name_title">
+                        <p>Total</p>
+                      </div>
+                      <div>
+                        <p className="cart_item_simple_text">
+                          &#x20B9;
+                          {Number(item.gstIncludePrice * item.user_qty).toFixed(
+                            2
+                          )}
+                          {/* {(
+                          item.price * item.user_qty +
+                          item.price * (item.gst / 100) * item.user_qty
+                        ).toFixed(2)} */}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="cart_item_section02">
                   <div className="section_02_flex01">
                     {/* <p className="cart_item_simple_text">Product</p>
