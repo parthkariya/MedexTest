@@ -399,6 +399,10 @@
     gap: 0rem;
   }
 
+  .sub_total_wrap {
+    margin-top: 50px;
+  }
+
   .display_at_600 {
     display: initial;
   }

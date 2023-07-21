@@ -119,6 +119,8 @@ const CartItem = (props) => {
                         style={{
                           border: "solid #25ced1 2px",
                           width: "112px",
+                          display: "flex",
+                          justifyContent: "center",
                         }}>
                         <p className="qty_no">
                           <button

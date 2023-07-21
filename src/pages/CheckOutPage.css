@@ -353,14 +353,16 @@
 .pty-1 input,
 .pty-2 input,
 .pty-3 input,
-.pty-4 input {
+.pty-4 input,
+.pty-5 input {
   display: block !important;
 }
 
 .pty-1 label,
 .pty-2 label,
 .pty-3 label,
-.pty-4 label {
+.pty-4 label,
+.pty-5 label {
   white-space: nowrap !important;
 }
 
@@ -374,7 +376,8 @@
 .pty-1,
 .pty-2,
 .pty-3,
-.pty-4 {
+.pty-4,
+.pty-5 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -390,7 +393,8 @@
 .inpt-1 input,
 .inpt-2 input,
 .inpt-3 input,
-.inpt-4 input {
+.inpt-4 input,
+.inpt-5 input {
   display: block !important;
   border: solid 1px #888;
   height: 33px;
@@ -401,7 +405,8 @@
 .inpt-1,
 .inpt-2,
 .inpt-3,
-.inpt-4 {
+.inpt-4,
+.inpt-5 {
   margin-top: 3%;
 }
 

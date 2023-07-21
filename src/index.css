@@ -311,6 +311,11 @@ link {
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  .img_wishlist {
+    height: 90px;
+    width: 90px;
+  }
 }
 
 @media screen and (max-width: 600px) {

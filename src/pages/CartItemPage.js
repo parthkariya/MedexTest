@@ -7,7 +7,7 @@ const CartItemPage = () => {
 
   return (
     <main style={{ marginTop: "7%", marginBottom: "2%" }}>
-      <CartItem />;
+      <CartItem />
     </main>
   );
 };

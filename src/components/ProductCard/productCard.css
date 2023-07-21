@@ -127,6 +127,7 @@ a {
   text-transform: uppercase;
   color: #a75050;
   margin-bottom: 18px;
+  padding-left: 5px;
 }
 
 .cat2 {
@@ -143,6 +144,7 @@ a {
   color: #363636;
   text-decoration: none;
   transition: 0.3s;
+  padding-left: 5px;
 }
 
 .product-details h4 a:hover {
@@ -171,6 +173,7 @@ a {
   font-size: 18px;
   color: #2b8a3e;
   font-weight: 600;
+  padding-left: 5px;
 }
 
 .product-price {

@@ -8,6 +8,7 @@ import LoginComponent from "../Login/LoginComponent";
 import { useUserContext } from "../../context/user_context";
 import { useCartContext } from "../../context/cart_context";
 import { useProductsContext } from "../../context/products_context";
+import { Dropdown } from "antd";
 
 const Navbar = (props) => {
   const { isLogin, logoutUser, userid } = useUserContext();
@@ -191,13 +192,15 @@ const Navbar = (props) => {
               Account
               <i class="fa fa-caret-down"></i>
             </button>
+
             <div class="dropdown-content">
-              <a href="#">Profile</a>
-              <a href="#">Wallet</a>
-              <a href="#">Order history</a>
+              <a href="./Dashboard">Profile</a>
+              <a href="./Dashboard">My Wallet</a>
+              <a href="./Dashboard">Order history</a>
               <a href="#">My account</a>
-              <a href="#">Wishlist</a>
+              <a href="./Wishlist">Wishlist</a>
               <a href="#">Notifications</a>
+              <a href="./TicketDetails">Ticket Details</a>
               <a href="#">Logout</a>
               <a href="#">
                 Request a non listed <br /> product

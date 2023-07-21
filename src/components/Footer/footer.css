@@ -11,6 +11,8 @@
 .footer__flex_wrapper {
   display: flex;
   padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 40px;
   margin-top: 1.5rem;
   justify-content: space-between;
 }

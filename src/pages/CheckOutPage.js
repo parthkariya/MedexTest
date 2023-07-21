@@ -444,6 +444,16 @@ const CheckOutPage = () => {
                           }></input>
                         <lable for="pty-4">Cash Deposit</lable>
                       </div>
+                      <div className="pty-5">
+                        <input
+                          id="pty-5"
+                          name="pty"
+                          type="radio"
+                          onClick={() =>
+                            setOtherPaymentType("cashdeposit")
+                          }></input>
+                        <lable for="pty-4">UPI</lable>
+                      </div>
                     </div>
 
                     <div className="om-payment-details">
