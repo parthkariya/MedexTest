@@ -231,6 +231,16 @@ tr:nth-child(even) {
   height: 61px;
 }
 
+@media (max-width: 977px) {
+  .action_val_cell {
+    height: 105px;
+  }
+}
+@media (max-width: 895px) {
+  .action_val_cell {
+    height: 127px;
+  }
+}
 .action_val_btn {
   border: none;
   background: none;
@@ -265,7 +275,7 @@ tr:nth-child(even) {
   }
   .footer__flex_wrapper,
   .footer__links_section {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .link_section_first {

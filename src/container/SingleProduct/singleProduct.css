@@ -2,13 +2,14 @@
   min-height: 100vh;
   background: #fff;
   display: flex;
-  gap: 10rem;
+  /* gap: 10rem; */
 }
 
 .main__section_padding02 {
   /* padding: 5.6rem 9.4rem; */
   margin-top: 85px;
   margin-left: 35px;
+  margin-right: 35px;
 }
 
 .tabex {
@@ -125,6 +126,7 @@
 .singleproduct_price_addtocart_wrapper {
   display: flex;
   justify-content: space-between;
+  /* padding-left: 20px; */
   /* gap: 10rem; */
 }
 
@@ -280,6 +282,7 @@
   flex-wrap: wrap;
 
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .singlelogo_wrapper {
@@ -342,7 +345,7 @@
   }
 
   .productpage__wrapper {
-    gap: 5rem;
+    /* gap: 5rem; */
   }
 
   .productpage_img_wrapper {
@@ -352,6 +355,7 @@
 
   .productpage_dis_side_wrapper,
   .singleproduct_logos_section {
+    padding-left: 30px;
     max-width: 640px;
   }
 
@@ -364,14 +368,36 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 1214px) {
+  .productpage__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productpage_dis_side_wrapper,
+  .singleproduct_logos_section {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  .singleproduct_logos_section {
+    width: 100%;
+  }
+}
+/* .productpage_dis_side_wrapper,
+  .singleproduct_logos_section {
+    max-width: 590;
+  } */
+
+@media (max-width: 460px) {
   .productpage__wrapper {
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
   }
 
   .main__section_padding02 {
-    padding: 3rem 3rem;
+    /* padding: 3rem 3rem; */
   }
 
   .productpage_img_wrapper {
@@ -380,9 +406,17 @@
     padding: 1rem;
   }
 
+  /* width: 350px !important;
+    display: flex;
+    height: 350px !important;
+    background: #e5e5e5;
+    padding: 2rem;
+    border-radius: 1px;
+    flex-direction: column-reverse; */
+
   .singleproduct_price_addtocart_wrapper {
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     gap: 2rem;
   }
@@ -402,7 +436,7 @@
   }
 
   .singleproduct_name {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .singleproduct_item_dis {

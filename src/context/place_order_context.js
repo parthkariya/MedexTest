@@ -364,7 +364,7 @@ export const OrderProvider = ({ children }) => {
         },
       })
       .then((res) => {
-        // console.log("address", res.data);
+        console.log("address--->", JSON.stringify(res, null, 2));
         if (res.data.success == 1) {
           dispatch({
             type: CANCEL_ORDER_SUCCESS,
