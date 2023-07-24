@@ -148,8 +148,63 @@ import { Link } from "react-router-dom";
 import { images } from "../../constants";
 import { useCartContext } from "../../context/cart_context";
 import "./productCard.css";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { accept_header, add_wishlist_url } from "../../Utils/constatns";
+import axios from "axios";
 
 const ProductCard = (props) => {
+
+  const [wishlistcalling1, setWishlistcalling1] = useState(1);
+  const [loading, SetLoading] = useState(1);
+
+  const user_id = localStorage.getItem("userid");
+
+  useEffect(() => {
+    console.log("user id is", user_id);
+  }, [])
+
+
+  // Add wishlist api
+
+  const addWishlist = (productid) => {
+
+    SetLoading(true);
+    let userid = localStorage.getItem("token");
+    console.log("token is", userid);
+
+
+    const formdata = new FormData();
+    formdata.append("product_id", productid);
+    formdata.append("calling", wishlistcalling1);
+
+
+
+    console.log("add wishlist formdata is", formdata);
+
+    axios
+      .post(add_wishlist_url, formdata, {
+        headers: {
+          Accept: accept_header,
+          Authorization: "Bearer " + JSON.parse(userid),
+        },
+      })
+      .then((res) => {
+        console.log("ticket data", res.data);
+        if (res.data.success == 1) {
+          SetLoading(false);
+          // setTicket_modal(false);
+        } else {
+          null;
+          SetLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.log("err", err);
+        SetLoading(false);
+      });
+
+  }
+
   const product = props.product;
   const { addToCartItem, cart } = useCartContext();
   const [value, setValue] = React.useState("1");
@@ -224,6 +279,10 @@ const ProductCard = (props) => {
     }
   };
 
+  useEffect(() => {
+    console.log("product is", product);
+  }, [])
+
   return (
     // <div>
     //   {product && product !== undefined ?
@@ -265,9 +324,12 @@ const ProductCard = (props) => {
                   <small>&#x20B9;{product.selling_price}</small>
                 </div>
                 <div className="product-links">
-                  <a href="">
-                    <i className="fa fa-heart"></i>
-                  </a>
+                  <Link to={{ pathname: "/Wishlist" }}>
+                    {/* <i className="fa fa-heart"></i> */}
+                    {user_id === "" ? null : <>{product.is_wishlist === true ? <AiFillHeart size="20px" /> : <AiOutlineHeart size="20px" onClick={() => addWishlist(product.id)} />}
+                    </>}
+
+                  </Link>
                   <Link
                     to={{ pathname: "/cart" }}
                     style={{ width: "100px" }}

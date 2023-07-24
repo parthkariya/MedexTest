@@ -129,6 +129,10 @@ html {
     right: 45px;
   }
 
+  /* .footer-logo-padding {
+    padding-left: 15px;
+  } */
+
   .footer__flex_wrapper {
     padding-left: 0px;
     flex-direction: column;
@@ -156,6 +160,7 @@ html {
   .footer_logo_wrapper,
   .footer__logo_section {
     justify-content: center;
+    padding-left: 15px;
     /* text-align: center; */
   }
 }

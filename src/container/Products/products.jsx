@@ -23,7 +23,8 @@ const Data = [
 
 const breakPoints = [
   { width: 500, itemsToShow: 1, itemsToScroll: 1, Arrow: false },
-  { width: 778, itemsToShow: 3, itemsToScroll: 2 },
+  { width: 778, itemsToShow: 2, itemsToScroll: 2 },
+  { width: 870, itemsToShow: 3, itemsToScroll: 3 },
   { width: 1200, itemsToShow: 4, itemsToScroll: 3 },
 ];
 
@@ -65,8 +66,8 @@ const Products = (props) => {
         {/* <div className="cards__wrapper"> */}
         {products && products.length > 0
           ? products.slice(0, 8).map((item, index) => {
-              return <ProductCard product={item} />;
-            })
+            return <ProductCard product={item} />;
+          })
           : null}
         {/* </div> */}
       </Carousel>

@@ -69,7 +69,7 @@ const initialState = {
   logintoken: getToken(),
   userid: getUserId(),
   wallet_data: [],
-  wallet_loading: false
+  wallet_loading: false,
 };
 const UserContext = React.createContext();
 
@@ -184,7 +184,6 @@ export const UserProvider = ({ children }) => {
       const logindata = response.data;
       if (logindata.success == 1) {
         dispatch({ type: WALLET_SUCCESS, payload: logindata.record });
-
       }
     } catch (error) {
       dispatch({ type: WALLET_ERROR });
@@ -196,6 +195,7 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem("logindata", "");
     localStorage.setItem("islogin", "");
     localStorage.setItem("userid", "");
+    localStorage.setItem("token", "");
   };
 
   return (
@@ -206,7 +206,8 @@ export const UserProvider = ({ children }) => {
         logoutUser,
         getUserDetails,
         updateUserDetails,
-        setRagister, getWallet
+        setRagister,
+        getWallet,
       }}
     >
       {children}

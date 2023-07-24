@@ -44,9 +44,9 @@ const CheckOutPage = () => {
   const [date, setDate] = useState("");
   const [details, setDetails] = useState("");
 
-  // useEffect(()=>{
-  //   console.log("address_list",address_list);
-  // },[])
+  // useEffect(() => {
+  //   console.log("address_list", address_list[0].id);
+  // }, []);
 
   useEffect(() => {
     getAddress(logintoken);
@@ -84,10 +84,7 @@ const CheckOutPage = () => {
       Notification("error", "Error!", "Please enter transaction detail");
       return;
     }
-    if (shiping_address_id === "" || shiping_address_id === undefined) {
-      Notification("error", "Error!", "Please select address!");
-      return;
-    }
+
     if (logindata.wallet < total && isChaked && selectedOption == "Wallet") {
       Notification("error", "Error!", "Choose other option to pay");
       return;
@@ -111,8 +108,8 @@ const CheckOutPage = () => {
         }
       }
     }
-    formData.append(`shipping_address_id`, shiping_address_id);
-    formData.append(`billing_address_id`, shiping_address_id);
+    formData.append(`shipping_address_id`, address_list[0].id);
+    formData.append(`billing_address_id`, address_list[0].id);
     formData.append(`currency`, "INR");
     formData.append(`gst_no`, "test");
 
@@ -180,16 +177,17 @@ const CheckOutPage = () => {
                           {item.country_name} - {item.pincode}
                         </p>
 
-                        <button
+                        {/* <button
                           className="address_card_btn"
                           style={
                             item.id === shiping_address_id
                               ? { backgroundColor: "green" }
                               : {}
                           }
-                          onClick={() => setAddress_Id(item.id)}>
+                          onClick={() => setAddress_Id(item.id)}
+                        >
                           Deliver Here
-                        </button>
+                        </button> */}
                       </div>
                       {/* <div className="address_card_edit">
                         <MdOutlineDelete
@@ -219,10 +217,12 @@ const CheckOutPage = () => {
               gap: "8px",
               width: "100%",
               justifyContent: "center",
-            }}>
+            }}
+          >
             <input
               placeholder="Enter promocode"
-              style={{ paddingLeft: "8px", paddingRight: "8px" }}></input>
+              style={{ paddingLeft: "8px", paddingRight: "8px" }}
+            ></input>
             <button className="address_card_btn">Apply</button>
           </div>
         </div>
@@ -365,10 +365,12 @@ const CheckOutPage = () => {
                     setPaymentTab(1);
                     setIschecked(true);
                     setSelectionOption("Wallet");
-                  }}>
+                  }}
+                >
                   <label
                     for="tab1"
-                    style={{ color: payment_tab === 1 ? "#22b8cf" : "" }}>
+                    style={{ color: payment_tab === 1 ? "#22b8cf" : "" }}
+                  >
                     Wallet
                   </label>
                 </Link>
@@ -380,10 +382,12 @@ const CheckOutPage = () => {
                     setPaymentTab(2);
                     setIschecked(false);
                     setSelectionOption("");
-                  }}>
+                  }}
+                >
                   <label
                     for="tab2"
-                    style={{ color: payment_tab === 2 ? "#22b8cf" : "" }}>
+                    style={{ color: payment_tab === 2 ? "#22b8cf" : "" }}
+                  >
                     Other Method
                   </label>
                 </Link>
@@ -415,7 +419,8 @@ const CheckOutPage = () => {
                           id="pty-1"
                           name="pty"
                           type="radio"
-                          onClick={() => setOtherPaymentType("cheque")}></input>
+                          onClick={() => setOtherPaymentType("cheque")}
+                        ></input>
                         <lable for="pty-1">Cheque</lable>
                       </div>
                       <div className="pty-2">
@@ -423,7 +428,8 @@ const CheckOutPage = () => {
                           id="pty-2"
                           name="pty"
                           type="radio"
-                          onClick={() => setOtherPaymentType("neft")}></input>
+                          onClick={() => setOtherPaymentType("neft")}
+                        ></input>
                         <lable for="pty-2">NEFT</lable>
                       </div>
                       <div className="pty-3">
@@ -431,7 +437,8 @@ const CheckOutPage = () => {
                           id="pty-3"
                           name="pty"
                           type="radio"
-                          onClick={() => setOtherPaymentType("imps")}></input>
+                          onClick={() => setOtherPaymentType("imps")}
+                        ></input>
                         <lable for="pty-3">IMPS</lable>
                       </div>
                       <div className="pty-4">
@@ -439,9 +446,8 @@ const CheckOutPage = () => {
                           id="pty-4"
                           name="pty"
                           type="radio"
-                          onClick={() =>
-                            setOtherPaymentType("cashdeposit")
-                          }></input>
+                          onClick={() => setOtherPaymentType("cashdeposit")}
+                        ></input>
                         <lable for="pty-4">Cash Deposit</lable>
                       </div>
                       <div className="pty-5">
@@ -449,9 +455,8 @@ const CheckOutPage = () => {
                           id="pty-5"
                           name="pty"
                           type="radio"
-                          onClick={() =>
-                            setOtherPaymentType("cashdeposit")
-                          }></input>
+                          onClick={() => setOtherPaymentType("cashdeposit")}
+                        ></input>
                         <lable for="pty-4">UPI</lable>
                       </div>
                     </div>
@@ -463,16 +468,16 @@ const CheckOutPage = () => {
                           id="inpt-1"
                           type="text"
                           placeholder="Amount"
-                          onChange={(val) =>
-                            setAmount(val.target.value)
-                          }></input>
+                          onChange={(val) => setAmount(val.target.value)}
+                        ></input>
                       </div>
                       <div className="inpt-2">
                         <lable for="inpt-2"> Date :</lable>
                         <input
                           id="inpt-2"
                           type="date"
-                          onChange={(val) => setDate(val.target.value)}></input>
+                          onChange={(val) => setDate(val.target.value)}
+                        ></input>
                       </div>
                       <div className="inpt-3">
                         <lable for="inpt-3"> Transaction Detail :</lable>
@@ -480,9 +485,8 @@ const CheckOutPage = () => {
                           id="inpt-3"
                           type="text"
                           placeholder="Transaction Detail"
-                          onChange={(val) =>
-                            setDetails(val.target.value)
-                          }></input>
+                          onChange={(val) => setDetails(val.target.value)}
+                        ></input>
                       </div>
                     </div>
                   </div>
@@ -515,7 +519,8 @@ const CheckOutPage = () => {
                 } else {
                   Notification("error", "Error!", "Please login");
                 }
-              }}>
+              }}
+            >
               PLACE ORDER
             </button>
             {/* </form> */}

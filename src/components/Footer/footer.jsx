@@ -16,7 +16,7 @@ const Footer = () => {
 
     <div className="footer__main_section main__section_padding">
       <div className="footer__wrapper">
-        <div>
+        <div className="footer-logo-padding">
           <a
             class="menu-link btn-contact"
             href="//api.whatsapp.com/send?phone=91988388743&text=Let's Get in Touch"
@@ -55,16 +55,16 @@ const Footer = () => {
             </Link>
             {detail && detail.length > 0
               ? detail.slice(4, 8).map((item, index) => {
-                  return (
-                    <>
-                      <p className="footer_logo_text">
-                        {item.name}
-                        <br></br>
-                        {item.value}
-                      </p>
-                    </>
-                  );
-                })
+                return (
+                  <>
+                    <p className="footer_logo_text">
+                      {item.name}
+                      <br></br>
+                      {item.value}
+                    </p>
+                  </>
+                );
+              })
               : null}
           </div>
 
@@ -106,12 +106,12 @@ const Footer = () => {
               </a>
               {detail && detail.length > 0
                 ? detail.slice(0, 4).map((item, index) => {
-                    return (
-                      <a href="#" className="footer_simple_link">
-                        {item.name}
-                      </a>
-                    );
-                  })
+                  return (
+                    <a href="#" className="footer_simple_link">
+                      {item.name}
+                    </a>
+                  );
+                })
                 : null}
             </div>
 
@@ -129,53 +129,53 @@ const Footer = () => {
 
               {info && info.length > 0
                 ? info.map((item, index) => {
-                    return item.slug == "Privacy Policies" ? (
-                      <li key={index}>
-                        <Link
-                          className="footer_simple_link"
-                          to={{
-                            pathname: `/PrivacyPolicies`,
-                          }}
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ) : item.slug == "Terms & Condition" ? (
-                      <li key={index}>
-                        <Link
-                          className="footer_simple_link"
-                          to={{
-                            pathname: `/TermsConditions`,
-                          }}
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ) : item.slug == "Help" ? (
-                      <li key={index}>
-                        <Link
-                          className="footer_simple_link"
-                          to={{
-                            pathname: `/Help`,
-                          }}
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ) : item.link_type == 0 ? (
-                      <li key={index}>
-                        <Link
-                          className="footer_simple_link"
-                          to={{ pathname: `/${item.slug}`, state: item }}
-                          onClick={() =>
-                            localStorage.setItem("item", JSON.stringify(item))
-                          }
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ) : null;
-                  })
+                  return item.slug == "Privacy Policies" ? (
+                    <li key={index}>
+                      <Link
+                        className="footer_simple_link"
+                        to={{
+                          pathname: `/PrivacyPolicies`,
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ) : item.slug == "Terms & Condition" ? (
+                    <li key={index}>
+                      <Link
+                        className="footer_simple_link"
+                        to={{
+                          pathname: `/TermsConditions`,
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ) : item.slug == "Help" ? (
+                    <li key={index}>
+                      <Link
+                        className="footer_simple_link"
+                        to={{
+                          pathname: `/Help`,
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ) : item.link_type == 0 ? (
+                    <li key={index}>
+                      <Link
+                        className="footer_simple_link"
+                        to={{ pathname: `/${item.slug}`, state: item }}
+                        onClick={() =>
+                          localStorage.setItem("item", JSON.stringify(item))
+                        }
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ) : null;
+                })
                 : null}
             </div>
           </div>

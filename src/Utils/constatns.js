@@ -12,6 +12,7 @@ export const single_product_url = BaseUrl + "new-product-detail/";
 export const seller_url = BaseUrl + "new-product-seller/";
 export const manu_url = BaseUrl + "new-product-manu/";
 export const add_wishlist_url = BaseUrl + "all-wishlist";
+export const get_wishlist_url = BaseUrl + "wishlists";
 export const place_order_url = BaseUrl + "new-place-order";
 export const add_address_url = BaseUrl + "add-address";
 export const get_countries = BaseUrl + "countries";

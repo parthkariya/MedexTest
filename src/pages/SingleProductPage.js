@@ -14,6 +14,8 @@ import { FaRupeeSign } from "react-icons/fa";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FaGlobeAmericas } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
+import { TbTruckReturn } from "react-icons/tb";
+import { IoLocationSharp } from "react-icons/io5";
 
 import { GiChemicalDrop } from "react-icons/gi";
 import { Link } from "react-router-dom";
@@ -24,7 +26,7 @@ import { useCartContext } from "../context/cart_context";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { ProductCard } from "../components";
+import { ProductCard, ProductImages } from "../components";
 
 const SingleProductPage = (props) => {
   const { fetchSingleProduct, single_product } = useProductsContext();
@@ -38,11 +40,17 @@ const SingleProductPage = (props) => {
   const [isRefresh, setRefresh] = useState(false);
   const [offer_qty, setOfferQty] = useState(0);
 
+  const { images } = single_product;
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const id = props.location.state;
-    // console.log("id, setid", id, userid);
-    fetchSingleProduct(`${single_product_url}${id}/${userid}`);
+    const user_id = localStorage.getItem("userid");
+    if (user_id === "") {
+      fetchSingleProduct(`${single_product_url}${id}/${0}`);
+    } else {
+      fetchSingleProduct(`${single_product_url}${id}/${userid}`);
+    }
   }, [props.location.state]);
 
   useEffect(() => {}, [console.log("sellername", single_product)]);
@@ -133,11 +141,12 @@ const SingleProductPage = (props) => {
         <div className="productpage__wrapper main__section_padding02">
           <div className="productpage_photo_side_wrapper">
             <div className="productpage_img_wrapper">
-              <img
+              {/* <img
                 src={single_product.image}
                 alt=""
                 className="singleproduct_img"
-              />
+              /> */}
+              <ProductImages images={images} />
             </div>
 
             <div className="productpage_photo_side_wrapper-text_wrapper">
@@ -153,7 +162,7 @@ const SingleProductPage = (props) => {
 
           <div className="productpage_dis_side_wrapper">
             <div className="sellername_wrap">
-              {single_product.category.slice(0, 1).map((item, index) => {
+              {single_product.category.slice(1, 2).map((item, index) => {
                 return <p className="brand_text">{item}</p>;
               })}
             </div>
@@ -222,18 +231,20 @@ const SingleProductPage = (props) => {
                                 seller_name: single_product.sellers.name,
                               },
                             }}
-                            className="sellername_text">
+                            className="sellername_text"
+                          >
                             {single_product.sellers.name}
                           </Link>
                         )}
                       </div>
                     </div>
-                    <div>
-                      <img
+                    <div className="return-time-sec-flex">
+                      {/* <img
                         src={images.return_exchange}
                         alt=""
                         className="rtn_exchange"
-                      />
+                      /> */}
+                      <TbTruckReturn className="rtn_exchange" />
                       <b>7 Days Return or Replacement.</b>
                     </div>
                   </div>
@@ -284,7 +295,8 @@ const SingleProductPage = (props) => {
                               }
                             }
                           }
-                        }}>
+                        }}
+                      >
                         -
                       </button>
                       &nbsp;&nbsp;{qty}&nbsp;&nbsp;
@@ -317,17 +329,20 @@ const SingleProductPage = (props) => {
                             )
                               setQty(qty + offer_qty);
                           }
-                        }}>
+                        }}
+                      >
                         +
                       </button>
                     </p>
                   </div>
                 </div>
                 <div className="pincode_status">
-                  <img src={images.location_icon} className="location_sp" />
+                  {/* <img src={images.location_icon} className="location_sp" /> */}
+                  <IoLocationSharp className="location_sp" />
                   <input
                     placeholder="Enter pincode"
-                    style={{ paddingLeft: "8px", paddingRight: "8px" }}></input>
+                    style={{ paddingLeft: "8px", paddingRight: "8px" }}
+                  ></input>
                   <button type="submit" className="pincodebtn_sp">
                     Submit
                   </button>
@@ -339,7 +354,8 @@ const SingleProductPage = (props) => {
                   onClick={() => {
                     cartAddValue(single_product);
                   }}
-                  className="singleproduct_addtocard_wrap">
+                  className="singleproduct_addtocard_wrap"
+                >
                   <AiOutlineShoppingCart className="singleproduct_addtocard_logo" />
                   <p className="singleproduct_addtocard_text">+ Add to cart</p>
                 </Link>
@@ -359,13 +375,15 @@ const SingleProductPage = (props) => {
               indicatorColor="primary"
               textColor="primary"
               aria-label="basic tabs example"
-              className="tabex">
+              className="tabex"
+            >
               <Tab
                 label={
                   <span
                     className={
                       value === "1" ? "tab__labal-active" : "tab__labal"
-                    }>
+                    }
+                  >
                     PRODUCT DETAILS
                   </span>
                 }
@@ -376,7 +394,8 @@ const SingleProductPage = (props) => {
                   <span
                     className={
                       value === "2" ? "tab__labal-active" : "tab__labal"
-                    }>
+                    }
+                  >
                     OTHER SELLERS
                   </span>
                 }
@@ -397,7 +416,8 @@ const SingleProductPage = (props) => {
                         manu_id: single_product.manufactures.id,
                         manu_name: single_product.manufactures.manufacture_name,
                       },
-                    }}>
+                    }}
+                  >
                     <div className="singlelogo_wrapper">
                       <div className="singlelogo_wrapper_logobox">
                         <FaBuilding className="singlelogo_wrapper_logo" />
@@ -405,12 +425,14 @@ const SingleProductPage = (props) => {
                       <div className="singlelogo_wrapper_text">
                         <p
                           className="singlelogo_wrapper_name"
-                          style={{ color: "#1864ab" }}>
+                          style={{ color: "#1864ab" }}
+                        >
                           Manufacture
                         </p>
                         <p
                           className="singlelogo_wrapper_dis"
-                          style={{ color: "#1971c2", fontWeight: 500 }}>
+                          style={{ color: "#1971c2", fontWeight: 500 }}
+                        >
                           {single_product.manufacture}
                         </p>
                       </div>

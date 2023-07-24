@@ -216,8 +216,8 @@ const NewAddress = ({
                       </option>
                       {country_list && country_list.length > 0
                         ? country_list.map((option) => (
-                          <option value={option.id}>{option.name}</option>
-                        ))
+                            <option value={option.id}>{option.name}</option>
+                          ))
                         : null}
                     </select>
                   </div>
@@ -236,10 +236,10 @@ const NewAddress = ({
                       </option>
                       {state_list && state_list.length > 0
                         ? state_list.map((option) => (
-                          <option value={option.state_id}>
-                            {option.name}
-                          </option>
-                        ))
+                            <option value={option.state_id}>
+                              {option.name}
+                            </option>
+                          ))
                         : null}
                     </select>
                   </div>
@@ -256,10 +256,10 @@ const NewAddress = ({
                       </option>
                       {city_list && city_list.length > 0
                         ? city_list.map((option) => (
-                          <option value={option.city_id}>
-                            {option.name}
-                          </option>
-                        ))
+                            <option value={option.city_id}>
+                              {option.name}
+                            </option>
+                          ))
                         : null}
                     </select>
                   </div>

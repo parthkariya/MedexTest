@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/medexnewtest/static/css/main.c91a306d.css",
-    "main.js": "/medexnewtest/static/js/main.7b853dcc.js",
+    "main.css": "/medexnewtest/static/css/main.923a46b2.css",
+    "main.js": "/medexnewtest/static/js/main.417bd2c4.js",
     "static/media/card_06.jpg": "/medexnewtest/static/media/card_06.22a4fc92635b9aabbdd0.jpg",
     "static/media/singleproduct_img.jpg": "/medexnewtest/static/media/singleproduct_img.aa672faf266ffc409b08.jpg",
     "static/media/banner_img.jpg": "/medexnewtest/static/media/banner_img.818ab7156000fb0b08cc.jpg",
@@ -23,11 +23,11 @@
     "static/media/pin.png": "/medexnewtest/static/media/pin.64af410c6a5f32b5fd4f.png",
     "static/media/gmail.png": "/medexnewtest/static/media/gmail.a2f2146f929409405da0.png",
     "index.html": "/medexnewtest/index.html",
-    "main.c91a306d.css.map": "/medexnewtest/static/css/main.c91a306d.css.map",
-    "main.7b853dcc.js.map": "/medexnewtest/static/js/main.7b853dcc.js.map"
+    "main.923a46b2.css.map": "/medexnewtest/static/css/main.923a46b2.css.map",
+    "main.417bd2c4.js.map": "/medexnewtest/static/js/main.417bd2c4.js.map"
   },
   "entrypoints": [
-    "static/css/main.c91a306d.css",
-    "static/js/main.7b853dcc.js"
+    "static/css/main.923a46b2.css",
+    "static/js/main.417bd2c4.js"
   ]
 }

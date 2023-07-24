@@ -82,7 +82,7 @@ export const ProductsProvider = ({ children }) => {
 
   //fetch seller product api
   const fetchSellerProducts = async (url) => {
-    console.log("====", url)
+    console.log("====", url);
     dispatch({ type: GET_SELLER_BEGIN });
     try {
       const response = await axios.get(url, {

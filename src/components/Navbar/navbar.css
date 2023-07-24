@@ -1,5 +1,4 @@
-#mySerach {
-}
+#mySerach {}
 
 nav {
   position: relative;
@@ -130,6 +129,7 @@ marquee {
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 31%);
   z-index: 99;
   margin-top: -5%;
+  right: -20px;
 }
 
 .dropdown-content a:hover {
@@ -216,15 +216,13 @@ marquee {
   display: block;
 }
 
-.dropdown-content a:hover {
-}
+.dropdown-content a:hover {}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
-}
+.dropdown:hover .dropbtn {}
 
 /* .search-input {
     width: 350px;
@@ -255,6 +253,7 @@ marquee {
     align-items: center !important;
   }
 }
+
 @media (max-width: 750px) {
   .search-box {
     width: 250px;
@@ -272,11 +271,13 @@ marquee {
     gap: 0px !important;
   }
 }
+
 @media (max-width: 650px) {
   .search-box {
     width: 200px;
   }
 }
+
 @media (max-width: 575px) {
   .search-box {
     width: 31%;
@@ -314,9 +315,11 @@ marquee {
   }
 
   .nav__logos {
-    gap: 0px;
+    gap: 3px;
+    align-items: center;
   }
-  .search-box:hover > .search-input {
+
+  .search-box:hover>.search-input {
     width: 100px;
     padding: 0 7px;
   }

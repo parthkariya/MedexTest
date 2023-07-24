@@ -58,7 +58,13 @@ const LoginComponent = ({ showscreen, setShowlogin }) => {
       password: password,
     };
     const res = await setLogin(params);
-    if (res.success === 1) setShowlogin(false);
+    if (res === undefined) {
+      null;
+    } else if (res.success == 1) {
+      setShowlogin(false);
+    } else {
+      null;
+    }
   };
 
   const onRegister = async () => {

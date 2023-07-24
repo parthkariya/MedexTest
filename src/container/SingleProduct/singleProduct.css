@@ -2,7 +2,7 @@
   min-height: 100vh;
   background: #fff;
   display: flex;
-  /* gap: 10rem; */
+  gap: 5rem;
 }
 
 .main__section_padding02 {
@@ -24,10 +24,10 @@
 }
 
 .productpage_img_wrapper {
-  width: 540px;
-  height: 433px;
+  /* width: 540px;
+  height: 433px; */
   background: #e5e5e5;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1px;
 }
 
@@ -165,13 +165,22 @@
   flex-direction: column;
   /* gap: 35px; */
 }
+
 .sellerInfo {
   display: flex;
   align-items: center;
   gap: 5px;
 }
+
 .rtn_exchange {
   height: 35px;
+  width: 20px;
+}
+
+.return-time-sec-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .singleproduct_qty {
@@ -205,6 +214,7 @@
   height: 20px;
   width: 20px;
 }
+
 .quantity_text {
   font-family: var(--font-base);
   font-size: 1rem;
@@ -348,9 +358,14 @@
     /* gap: 5rem; */
   }
 
+  /* 
   .productpage_img_wrapper {
     width: 460px;
     height: 390px;
+  } */
+
+  .productpage_photo_side_wrapper {
+    max-width: 100%;
   }
 
   .productpage_dis_side_wrapper,
@@ -371,13 +386,40 @@
 @media (max-width: 1214px) {
   .productpage__wrapper {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .productpage_dis_side_wrapper,
   .singleproduct_logos_section {
     padding-left: 0px;
   }
+
+  .productpage_img_wrapper {
+    max-width: 475px;
+  }
+
+  .singleproduct_price_addtocart_wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .singleproduct_addtocard_wrap {
+    align-self: flex-start;
+  }
+}
+
+@media screen and (max-width:1160px) {
+  .singleproduct_logos_section {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width:920px) {
+  .productpage__wrapper {
+    flex-direction: column;
+  }
+
 }
 
 @media (max-width: 700px) {
@@ -385,10 +427,23 @@
     width: 100%;
   }
 }
+
 /* .productpage_dis_side_wrapper,
   .singleproduct_logos_section {
     max-width: 590;
   } */
+
+@media screen and (max-width:560px) {
+  .singleproduct_price_addtocart_wrapper {
+    flex-direction: column;
+    gap: 20px;
+
+  }
+
+  .singleproduct_addtocard_wrap {
+    align-self: flex-start;
+  }
+}
 
 @media (max-width: 460px) {
   .productpage__wrapper {
@@ -463,6 +518,15 @@
   .singleproduct_company_circle {
     text-align: center;
     width: auto;
+  }
+
+  .productpage_photo_side_wrapper {
+    min-height: 500px;
+  }
+
+  .productpage_img_wrapper {
+    padding: 0px;
+    background-color: transparent;
   }
 }
 
