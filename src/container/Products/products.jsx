@@ -24,8 +24,10 @@ const Data = [
 const breakPoints = [
   { width: 500, itemsToShow: 1, itemsToScroll: 1, Arrow: false },
   { width: 778, itemsToShow: 2, itemsToScroll: 2 },
-  { width: 870, itemsToShow: 3, itemsToScroll: 3 },
-  { width: 1200, itemsToShow: 4, itemsToScroll: 3 },
+  { width: 870, itemsToShow: 2, itemsToScroll: 2 },
+  { width: 1152, itemsToShow: 3, itemsToScroll: 3 },
+  { width: 1440, itemsToShow: 4, itemsToScroll: 4 },
+  { width: 1740, itemsToShow: 4, itemsToScroll: 4 }
 ];
 
 const myArrow = ({ type, onClick, isEdge }) => {

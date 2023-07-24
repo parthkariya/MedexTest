@@ -19,6 +19,7 @@
 .inq-card-con {
   max-width: 1140px;
   margin: 0 auto;
+
 }
 
 .inq-card-imgbox {
@@ -72,6 +73,13 @@
   margin-bottom: 20px;
   font-weight: 600;
   color: #274480;
+}
+
+@media screen and (max-width:1140px) {
+  .inq-card-con {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 @media screen and (max-width: 768px) {
